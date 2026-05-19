@@ -1,0 +1,436 @@
+/* ==========================================
+   VARIÁVEIS DE COR E ESTILO DO VALORANT
+   ========================================== */
+:root {
+    --v-vermelho: #ff4655;
+    --v-escuro: #0f1923;
+    --v-claro: #ece8e1;
+    --v-cinza-borda: #29323c;
+    --v-transparente-red: rgba(255, 70, 85, 0.15);
+}
+
+/* RESET COMPLETO DE LAYOUT */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* Impede que o usuário selecione os textos acidentalmente */
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    color: var(--v-claro);
+    font-family: 'Oswald', sans-serif;
+    overflow: hidden;
+}
+
+/* FONTES DINÂMICAS */
+.font-tactical {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   ESTRUTURA DE TELAS (O SEGREDO DA TRANSIÇÃO)
+   ========================================== */
+.tela {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: scale(0.95);
+    z-index: 1;
+}
+
+/* Classe dinâmica injetada via JavaScript para exibir a tela */
+.tela.ativa {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 5;
+}
+
+/* ==========================================
+   ESTILIZAÇÃO DA TELA 1: O MISTÉRIO
+   ========================================== */
+#tela-misterio {
+    background-color: #000000;
+}
+
+.conteudo-central {
+    text-align: center;
+}
+
+#imagem-bau {
+    width: 280px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                filter 0.3s ease;
+    animation: flutuacao-suave 3s infinite ease-in-out;
+}
+
+#imagem-bau:hover {
+    transform: scale(1.1) rotate(2deg);
+    filter: drop-shadow(0 0 25px var(--v-vermelho));
+}
+
+.instrucao-clique {
+    margin-top: 35px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 5px;
+    color: var(--v-vermelho);
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: piscar-suave 2s infinite ease-in-out;
+}
+
+/* ==========================================
+   ESTILIZAÇÃO DA TELA 2: CARTÃO VALORANT
+   ========================================== */
+#tela-codigo {
+    /* O gradiente escuro por cima garante que o texto fique extremamente legível */
+    background: linear-gradient(135deg, rgba(15, 25, 35, 0.95) 0%, rgba(15, 25, 35, 0.8) 100%), 
+                url('assets/fundo-valorant.gif') no-repeat center center;
+    background-size: cover;
+}
+
+.cartao-valorant {
+    background-color: var(--v-escuro);
+    width: 90%;
+    max-width: 550px;
+    padding: 50px 40px;
+    border: 1px solid var(--v-cinza-borda);
+    border-right: 5px solid var(--v-vermelho);
+    border-bottom: 5px solid var(--v-vermelho);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    clip-path: polygon(0 0, 93% 0, 100% 7%, 100% 100%, 7% 100%, 0 93%); /* Efeito de bordas cortadas do Valorant */
+}
+
+.detalhe-topo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--v-vermelho);
+}
+
+.titulo-vava {
+    font-size: 2.2rem;
+    color: var(--v-claro);
+    margin-bottom: 5px;
+}
+
+.subtitulo-tactical {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--v-vermelho);
+    margin-bottom: 30px;
+}
+
+.codigo-container {
+    background-color: var(--v-claro);
+    padding: 20px;
+    border-radius: 2px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.codigo-texto {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--v-escuro);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.aviso-resgate {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+/* BOTÃO DE AVANÇAR (ESTILO INTERFACE DO JOGO) */
+.botao-avancar {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    padding: 15px 35px;
+    background-color: transparent;
+    border: 1px solid var(--v-claro);
+    color: var(--v-claro);
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0, 85% 0, 100% 35%, 100% 100%, 15% 100%, 0 65%);
+}
+
+.botao-avancar:hover {
+    background-color: var(--v-vermelho);
+    border-color: var(--v-vermelho);
+    color: white;
+    box-shadow: 0 0 15px var(--v-vermelho);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   ESTILIZAÇÃO DA TELA 3: A MENSAGEM FINAL
+   ========================================== */
+#tela-mensagem {
+    background-color: #0b1219;
+}
+
+.bloco-mensagem {
+    max-width: 650px;
+    width: 90%;
+    padding: 40px;
+    border-left: 3px solid var(--v-vermelho);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.titulo-mensagem {
+    font-size: 3rem;
+    color: var(--v-vermelho);
+    margin-bottom: 10px;
+}
+
+.divisor-vermelho {
+    width: 80px;
+    height: 3px;
+    background-color: var(--v-vermelho);
+    margin-bottom: 25px;
+}
+
+.paragrafo-mensagem {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 300;
+    color: #cbd5e1;
+}
+
+/* ==========================================
+   ANIMAÇÕES DE ENTRADA E FLUTUAÇÃO
+   ========================================== */
+@keyframes flutuacao-suave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes piscar-suave {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+/* Cor roxa para a última tela */
+#tela-final {
+    background: radial-gradient(circle, #3c096c 0%, #10002b 100%);
+}
+
+.titulo-final {
+    position: absolute;
+    top: 50px;
+    font-size: 2rem;
+    color: #fafafa; /* Um dourado/alaranjado para contrastar com o roxo */
+    text-shadow: 0 0 15px rgba(255, 158, 0, 0.5);
+}
+/* CONTAINER PAI: O mapa do amontoado controlado */
+.mural-favoritos {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Aumentado levemente para dar mais espaço vertical */
+    margin-top: 60px;
+    overflow: hidden; /* Evita que alguma foto crie barra de rolagem se flutuar demais */
+}
+
+/* ESTILO BASE DAS POLAROIDS */
+.item-favorito {
+    position: absolute; /* Crucial para o espalhamento funcionar */
+    background: #240046;
+    border: 2px solid #7b2cbf;
+    width: 190px;  /* Reduzido levemente de 200px para respirar melhor na tela */
+    height: 250px; /* Altura unificada */
+    padding: 10px 10px 40px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    filter: grayscale(20%);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    z-index: 1;
+}
+
+/* O HOVER: Traz a foto para a frente de tudo, resgata a cor e zera a rotação */
+.item-favorito:hover {
+    border-color: #e0aaff;
+    filter: grayscale(0%);
+    transform: scale(1.15) rotate(0deg) !important;
+    z-index: 999 !important; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.item-favorito img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.item-favorito span {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #e0aaff;
+}
+
+/* PLAYER DE MÚSICA */
+.item-musica {
+    cursor: pointer !important;
+}
+
+.player-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 40px; /* Ajustado para não cobrir a borda inferior */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.status-musica {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    color: #fff;
+    margin-top: 15px;
+    text-shadow: 0 0 10px #ff4655;
+}
+
+/* ===================================================
+   DISTRIBUIÇÃO MATEMÁTICA E REORGANIZADA DO MURAL 
+   (Sem conflito de :nth-child e sem sobreposições cegas)
+   =================================================== */
+
+/* O Centro Digital */
+#item-art-musica { top: 35%; left: 42%; transform: rotate(-2deg); z-index: 10; }
+
+/* Lado Esquerdo da Tela */
+#item-comida      { top: 8%;  left: 6%;   transform: rotate(-7deg); }
+#item-gato     { bottom: 8%; left: 8%;  transform: rotate(6deg); }
+#item-desenho-1  { top: 38%; left: 18%;  transform: rotate(-5deg); } /* Preenche o meio-esquerdo */
+
+/* Lado Direito da Tela */
+#item-personagem      { top: 12%; right: 6%;  transform: rotate(8deg); }
+#item-momento     { bottom: 8%; right: 8%; transform: rotate(-6deg); }
+#item-desenho-2  { top: 42%; right: 18%; transform: rotate(4deg); }  /* Preenche o meio-direito */
+
+/* Topo e Base Centrais (Contornando a música) */
+#item-ela  { top: 5%;  left: 43%;  transform: rotate(3deg); }  /* Logo acima da música */
+#item-extra-1    { top: 10%; left: 20%;  transform: rotate(5deg); }
+
+/* Espaço entre o topo direito e o centro */
+#item-extra-2    { top: 12%; right: 20%; transform: rotate(-7deg); }
+.codigo-texto {
+    user-select: text !important;
+    -webkit-user-select: text !important; /* Safari */
+}
+
+/* Alinha o texto e o botão de copiar lado a lado */
+.codigo-texto {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    
+    /* Cores e Contraste */
+    color: #ffffff !important; /* Branco puro para visibilidade máxima */
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px; /* Espaçamento sutil entre as letras táticas */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Um brilho leve neon */
+
+    /* Correção para não sair da borda */
+    font-size: 1.1rem; /* Diminuído ligeiramente para caber em telas menores/celular */
+    white-space: nowrap; /* Mantém em uma linha */
+}
+
+/* AJUSTE DO CONTAINER DO VALORANT */
+.codigo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(16, 0, 43, 0.75); /* Fundo roxo bem escuro para destacar o texto branco */
+    padding: 12px 15px;
+    border: 1px solid #ff4655; /* A borda vermelha clássica */
+    border-radius: 4px;
+    
+    /* Força o container a respeitar o tamanho do cartão do Valorant */
+    max-width: 90%; 
+    margin: 20px auto; /* Centraliza o container dentro do cartão */
+    box-sizing: border-box;
+}
+
+/* Estilo do mini-botão de copiar */
+#btn-copiar {
+    background: transparent;
+    border: 1px solid #7b2cbf;
+    color: #e0aaff;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-copiar:hover {
+    background: #ff4655;
+    border-color: #ff4655;
+    color: #fff;
+}
+#jumpscare-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: none; /* Escondido por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Fica acima de absolutamente TUDO no site */
+}
+
+#imagem-monstro {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ou 'cover' se quiser que o monstro estique na tela toda */
+    animation: tremer 0.1s infinite alternate; /* Efeito de tela tremendo de terror */
+}
+
+@keyframes tremer {
+    0% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(-2px, -2px) rotate(1deg); }
+}

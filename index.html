@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 5 noitadas com o Frederico </title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="tela-misterio" class="tela ativa">
+        <div class="conteudo-central">
+            <img src="assets/bau-fechado.gif" id="imagem-bau" alt="Baú Misterioso">
+            <p class="instrucao-clique">...</p>
+        </div>
+    </section>
+
+    <section id="tela-mensagem" class="tela">
+        <div class="bloco-mensagem animate-texto">
+            <h2 class="titulo-mensagem font-tactical">Feliz aniversário!</h2>
+            <div class="divisor-vermelho"></div>
+            <p class="paragrafo-mensagem">Sasalele! Eu te disse que você saberia qual seria a surpresa quando fosse o momento certo, não disse? </p>
+            <p class="paragrafo-mensagem">Queria fazer algo especial para uma pessoa especial como ti, então fiz este site! E um pequeno mimo. Muito pequeno mesmo comparado à sua simpatia. Estar perto de ti me faz muito bem, big querida! Espero que sinta o mesmo 💖</p>
+        </div>
+        <button class="botao-avancar" id="btn-ir-para-codigo">
+            <span class="texto-botao">VER SURPRESA //</span>
+        </button>
+    </section>
+
+    <section id="tela-codigo" class="tela">
+        <div class="cartao-valorant">
+            <div class="detalhe-topo"></div>
+            <h1 class="titulo-vava font-tactical">VAVA POINTS</h1>
+            <div class="codigo-container">
+    <span class="codigo-texto" id="texto-codigo-vp">RA-DEMN6K27K4EJ6Y35</span>
+    <button id="btn-copiar" title="Copiar código">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+        </svg>
+    </button>
+</div>
+            <p class="aviso-resgate">Aproveite ❤</p>
+        </div>
+        <button class="botao-avancar" id="btn-ir-para-mural">
+            <span class="texto-botao">AQUI, SASA! //</span>
+        </button>
+    </section>
+
+    <section id="tela-final" class="tela">
+        <h2 class="titulo-final font-tactical">My besto friendo ❤</h2>
+        <div class="mural-favoritos">
+            <div class="item-favorito item-musica" onclick="toggleMusica()">
+                <img src="assets/foto-musica.png" alt="Música Favorita">
+                <div class="player-overlay">
+                    <div class="visualizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <span class="status-musica">Tocando</span>
+                </div>
+            </div>
+            <div class="item-favorito" id="item-comida"><img src="assets/foto-comida.gif" alt="Comida Favorita"></div>
+            <div class="item-favorito" id="item-gato"><img src="assets/foto-gato.jpg" alt="Gato"></div>
+            <div class="item-favorito" id="item-personagem"><img src="assets/foto-personagem.gif" alt="Personagem Favorito"></div>
+            <div class="item-favorito" id="item-momento"><img src="assets/imagem3.jpg" alt="Momento Especial"></div>
+
+            <div class="item-favorito" id="item-ela"><img src="assets/ela.png" alt="Ela"></div>
+        <div class="item-favorito" id="item-desenho-1"><img src="assets/desenho1.png" alt="Desenho dela 2"></div>
+        <div class="item-favorito" id="item-desenho-2"><img src="assets/desenho2.png" alt="Desenho dela 3"></div>
+
+        <div class="item-favorito" id="item-extra-1"><img src="assets/extra1.jpg" alt="Extra 1"></div>
+        <div class="item-favorito" id="item-extra-2"><img src="assets/extra2.png" alt="Extra 2"></div>
+        </div>
+    </section>
+
+    <div id="jumpscare-container">
+        <img src="assets/jumpscare2.gif" id="imagem-monstro" alt="BOO!">
+    </div>
+
+    <audio id="som-jumpscare" src="assets/five-nights-at-freddys-full-scream-sound_2.mp3" preload="auto"></audio>
+    <audio id="som-revelacao" src="assets/blue (mp3cut.net).mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
